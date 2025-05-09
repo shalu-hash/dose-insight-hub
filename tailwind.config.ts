@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,6 +62,14 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				medtrack: {
+					'blue': '#4A90E2',
+					'light-blue': '#6CB2EB',
+					'green': '#4CAF50',
+					'light-green': '#81C784',
+					'red': '#F56565',
+					'yellow': '#ECC94B'
 				}
 			},
 			borderRadius: {
@@ -84,11 +93,19 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'pulse-once': {
+					'0%, 100%': { transform: 'scale(1)' },
+					'50%': { transform: 'scale(1.05)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'pulse-once': 'pulse-once 0.5s ease-in-out'
+			},
+			fontFamily: {
+				sans: ['Open Sans', 'sans-serif']
 			}
 		}
 	},
