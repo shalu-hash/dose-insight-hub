@@ -91,7 +91,7 @@ export default function Dashboard() {
         
         const { data: logsData, error: logsError } = await supabase
           .from('dose_logs')
-          .select('timestamp, medication_id, is_on_time')
+          .select('*')
           .eq('user_id', user.id)
           .gte('timestamp', threeMonthsAgo.toISOString());
           
@@ -147,31 +147,7 @@ export default function Dashboard() {
   }, [user]);
 
   const handleLogDose = async (medicationId: string) => {
-    if (!user) return;
-    
-    try {
-      const now = new Date();
-      const { data, error } = await supabase
-        .from('dose_logs')
-        .insert([
-          { 
-            medication_id: medicationId,
-            timestamp: now.toISOString(),
-            is_on_time: true, // You could calculate this based on scheduled time
-            user_id: user.id
-          }
-        ]);
-        
-      if (error) throw error;
-      
-      toast.success("Dose logged successfully!");
-      
-      // Refresh data
-      navigate(0);
-    } catch (error: any) {
-      console.error("Error logging dose:", error);
-      toast.error(error.message || "Failed to log dose");
-    }
+    navigate(`/dose-logging?medicationId=${medicationId}`);
   };
 
   return (

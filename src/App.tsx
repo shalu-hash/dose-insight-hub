@@ -11,6 +11,11 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import NotFound from "./pages/NotFound";
+import Medications from "./pages/Medications";
+import AddMedication from "./pages/AddMedication";
+import DoseLogging from "./pages/DoseLogging";
+import Calendar from "./pages/Calendar";
+import Analytics from "./pages/Analytics";
 
 const queryClient = new QueryClient();
 
@@ -26,13 +31,13 @@ const App = () => (
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/medications" element={<Medications />} />
+            <Route path="/medications/new" element={<AddMedication />} />
+            <Route path="/dose-logging" element={<DoseLogging />} />
+            <Route path="/calendar" element={<Calendar />} />
+            <Route path="/analytics" element={<Analytics />} />
             
             {/* These routes will be implemented later */}
-            <Route path="/medications" element={<Dashboard />} />
-            <Route path="/medications/new" element={<Dashboard />} />
-            <Route path="/dose-logging" element={<Dashboard />} />
-            <Route path="/calendar" element={<Dashboard />} />
-            <Route path="/analytics" element={<Dashboard />} />
             <Route path="/reports" element={<Dashboard />} />
             <Route path="/settings" element={<Dashboard />} />
             
