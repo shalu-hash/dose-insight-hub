@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
@@ -5,7 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { format } from "date-fns";
 import { useAuth } from "@/contexts/AuthContext";
-import { supabase } from "@/contexts/AuthContext";
+import { supabase } from "@/integrations/supabase/client"; // Fixed import
 import AppLayout from "@/components/layout/AppLayout";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -139,7 +140,7 @@ export default function AddMedication() {
         start_date: data.startDate.toISOString(),
         end_date: data.endDate ? data.endDate.toISOString() : null,
         category: data.category,
-        family_member: data.familyMember,
+        family_member: data.familyMember, // Fixed field name to match database column
         user_id: user.id,
         created_at: new Date().toISOString()
       };

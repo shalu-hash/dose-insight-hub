@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import AppLayout from "@/components/layout/AppLayout";
 import { useAuth } from "@/contexts/AuthContext";
-import { supabase } from "@/contexts/AuthContext";
+import { supabase } from "@/integrations/supabase/client"; // Fixed import
 import { Button } from "@/components/ui/button";
 import { PlusCircle } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
@@ -38,7 +38,7 @@ export default function Medications() {
           startDate: med.start_date,
           endDate: med.end_date,
           category: med.category,
-          familyMember: med.family_member,
+          familyMember: med.family_member, // Fixed field mapping
           userId: med.user_id,
           createdAt: med.created_at
         }));
